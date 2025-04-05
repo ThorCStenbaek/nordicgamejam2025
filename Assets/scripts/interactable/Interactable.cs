@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public GameObject promptUI; // Assign a world-space "E" icon
+    public GameObject promptUI; // The "E" icon
+    public UnityEvent onInteract; // Drag actions into this in Inspector!
 
     void Start()
     {
@@ -12,13 +14,8 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
-        
         Debug.Log("Interacted with " + gameObject.name);
-     if (TryGetComponent<Renderer>(out var renderer))
-    {
-        renderer.material.color = Color.green; // Change to green when interacted
-    }
-
+        onInteract?.Invoke(); // Call whatever is hooked up
     }
 
     public void ShowPrompt(bool show)
