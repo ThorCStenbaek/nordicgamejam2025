@@ -13,12 +13,13 @@ public class DialogueUI : MonoBehaviour
     {
         if (dialogueText != null)
         {
-            dialogueText.gameObject.SetActive(false);
+          
         }
     }
 
     public void ShowDialogue(string message)
     {
+        dialogueText.gameObject.SetActive(true);
         if (dialogueRoutine != null)
             StopCoroutine(dialogueRoutine);
 
@@ -32,7 +33,7 @@ public class DialogueUI : MonoBehaviour
 
         yield return new WaitForSeconds(displayDuration);
 
-        dialogueText.gameObject.SetActive(false);
+         dialogueText.text="";
         dialogueRoutine = null;
     }
 }
