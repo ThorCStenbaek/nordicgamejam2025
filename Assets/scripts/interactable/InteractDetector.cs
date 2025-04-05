@@ -8,12 +8,8 @@ public class InteractDetector : MonoBehaviour
     private Interactable currentInteractable;
 
     void Update()
-
-    
     {
-
-            Debug.DrawRay(transform.position, transform.forward * interactRange, Color.red);
-
+        // Cast ray from the camera forward
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
@@ -23,7 +19,6 @@ public class InteractDetector : MonoBehaviour
 
             if (interactable != null)
             {
-                // Only update prompt if it's a different object
                 if (currentInteractable != interactable)
                 {
                     if (currentInteractable != null)
@@ -33,7 +28,6 @@ public class InteractDetector : MonoBehaviour
                     currentInteractable.ShowPrompt(true);
                 }
 
-                // Interact
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     currentInteractable.Interact();
@@ -43,20 +37,20 @@ public class InteractDetector : MonoBehaviour
             }
         }
 
-        // If we're not hitting anything interactable
+        // Hide prompt when not looking at interactable
         if (currentInteractable != null)
         {
             currentInteractable.ShowPrompt(false);
             currentInteractable = null;
         }
     }
-    void OnDisable()
-{
-    if (currentInteractable != null)
-    {
-        currentInteractable.ShowPrompt(false);
-        currentInteractable = null;
-    }
-}
 
+    void OnDisable()
+    {
+        if (currentInteractable != null)
+        {
+            currentInteractable.ShowPrompt(false);
+            currentInteractable = null;
+        }
+    }
 }
