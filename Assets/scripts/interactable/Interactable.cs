@@ -12,8 +12,13 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
+        
         Debug.Log("Interacted with " + gameObject.name);
-        // You can override this in child classes for custom behavior
+     if (TryGetComponent<Renderer>(out var renderer))
+    {
+        renderer.material.color = Color.green; // Change to green when interacted
+    }
+
     }
 
     public void ShowPrompt(bool show)
