@@ -9,6 +9,9 @@ public class ObjectiveUI : MonoBehaviour
     public GameObject objectiveEntryPrefab;
     public Transform objectiveListParent;
 
+    private System.Action onAllObjectivesComplete;
+
+
     private Dictionary<string, Objective> objectives = new Dictionary<string, Objective>();
 
     public void AddObjective(string key, string text)
@@ -32,18 +35,39 @@ public class ObjectiveUI : MonoBehaviour
         });
     }
 
+    public void SetOnAllObjectivesCompleteCallback(System.Action callback)
+{
+    onAllObjectivesComplete = callback;
+}
+
+
     public void CompleteObjective(string key)
+{
+    if (objectives.TryGetValue(key, out Objective obj) && !obj.completed)
     {
-        if (objectives.TryGetValue(key, out Objective obj) && !obj.completed)
-        {
-            obj.completed = true;
-            obj.textComponent.text = $"<s>☑ {obj.text}</s>";
-        }
-        else
-        {
-            Debug.LogWarning($"No objective found with key '{key}', or it's already completed.");
-        }
+        obj.completed = true;
+        obj.textComponent.text = $"<s>☑ {obj.text}</s>";
+
+        CheckObjectivesCompletion();
     }
+    else
+    {
+        Debug.LogWarning($"No objective found with key '{key}', or it's already completed.");
+    }
+}
+
+private void CheckObjectivesCompletion()
+{
+    foreach (var obj in objectives.Values)
+    {
+        if (!obj.completed)
+            return;
+    }
+
+    onAllObjectivesComplete?.Invoke();
+}
+
+
 
     public void ClearObjectives()
     {
