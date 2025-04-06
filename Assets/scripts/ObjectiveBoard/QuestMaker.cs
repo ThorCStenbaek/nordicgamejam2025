@@ -79,6 +79,37 @@ objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon1Done);
 
     }
 
+
+        public void Afternoon2(){
+        /*
+        Afternoon
+Appear in order:
+You should listen back to the recording of today’s session
+Make some notes about your conclusions
+Brush your teeth
+Go to bed
+*/
+
+objectiveUI.AddObjective("NOTES", "Make some notes");
+objectiveUI.AddObjective("SINK", "Brush your teeth");
+objectiveUI.AddObjective("BREAKFAST", "Eat Dinner");
+
+objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon2Done);
+
+    }
+
+            public void Afternoon2Done() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "Go to bed");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(afternoon2Complete);
+
+    }
+
+        public void afternoon2Complete(){
+        //load scene
+        SceneManager.LoadScene("nightmarescene_2");
+    }
+
         public void Afternoon1Done() {
         objectiveUI.ClearObjectives();
         objectiveUI.AddObjective("BED", "Go to bed");
@@ -101,6 +132,31 @@ public void Nightmare1(){
     objectiveUI.AddObjective("TOILET", "go to the toilet");
     objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare1Complete);
 }
+
+public void Nightmare2(){
+    objectiveUI.AddObjective("TOILET", "go to the toilet");
+    objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare2Complete);
+}
+
+    public void Nightmare2Complete() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("SON", "Check on your son");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare2WakeUp);
+    }
+
+    public void Nightmare2WakeUp(){
+          objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "WAKE UP");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(NightmareLOADNEXT2);
+    }	
+
+            public void NightmareLOADNEXT2() {
+   SceneManager.LoadScene("day3");
+    }
+
+    public void onSon(){
+        objectiveUI.CompleteObjective("SON");
+    }
 
 public void onToilet(){
     objectiveUI.CompleteObjective("TOILET");

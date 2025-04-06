@@ -10427,7 +10427,7 @@ GameObject:
   - component: {fileID: 1646179775}
   - component: {fileID: 1646179772}
   - component: {fileID: 1646179773}
-  - component: {fileID: 1646179774}
+  - component: {fileID: 1646179778}
   - component: {fileID: 1646179776}
   - component: {fileID: 1646179777}
   m_Layer: 0
@@ -10465,20 +10465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveEntryPrefab: {fileID: 1776416724}
   objectiveListParent: {fileID: 665889942}
---- !u!114 &1646179774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646179771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5644b80feb7fda249a985855e44527b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questMaker: {fileID: 1646179772}
-  startOfDayClip: {fileID: 8300000, guid: 53f981532278d5a42bbd054ee13b7bb5, type: 3}
 --- !u!4 &1646179775
 Transform:
   m_ObjectHideFlags: 0
@@ -10504,8 +10490,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 53f981532278d5a42bbd054ee13b7bb5, type: 3}
-  m_Resource: {fileID: 8300000, guid: 53f981532278d5a42bbd054ee13b7bb5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4433839c8a5e5b84aa81db0c6444c0f7, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4433839c8a5e5b84aa81db0c6444c0f7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10688,6 +10674,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1646179778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646179771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4fa0d0853aa8442853053d723d68e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questMaker: {fileID: 1646179772}
+  startOfDayClip: {fileID: 0}
 --- !u!1001 &1659104956
 PrefabInstance:
   m_ObjectHideFlags: 0
