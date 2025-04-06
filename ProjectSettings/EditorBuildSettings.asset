@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Afternoon1.unity
     guid: 3095829bbfe3a434c9aeabaec2b557ce
+  - enabled: 1
+    path: Assets/Scenes/Afternoon2.unity
+    guid: fc310a4713df38d4bb878ebfd0da7d2c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

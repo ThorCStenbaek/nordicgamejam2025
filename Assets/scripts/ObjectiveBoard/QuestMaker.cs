@@ -34,6 +34,33 @@ public class QuestMaker : MonoBehaviour
     }
 
 
+        public void Day2(){
+                            
+                            objectiveUI.AddObjective("SHOW", "Take a shower");
+                          objectiveUI.AddObjective("SINK", "Brush your teeth bro");
+                          objectiveUI.AddObjective("BREAKFAST", "Eat breakfast");
+
+
+  
+
+                                objectiveUI.SetOnAllObjectivesCompleteCallback(Day2Work);
+    }
+
+
+        public void Day2Work() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("WORK", "Go to work");
+             //SceneManager.LoadScene("Afternoon1");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(Day2WorkComplete);
+
+    }
+
+        public void Day2WorkComplete(){
+                //load scene
+        SceneManager.LoadScene("Afternoon2");
+    }
+
+
     public void Afternoon1(){
         /*
         Afternoon
