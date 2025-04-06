@@ -66,9 +66,30 @@ objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon1Done);
 
     public void afternoon1Complete(){
         //load scene
-        SceneManager.LoadScene("Day2");
+        SceneManager.LoadScene("nightmare1");
     }
 
+
+public void Nightmare1(){
+    objectiveUI.AddObjective("TOILET", "go to the toilet");
+    objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare1Complete);
+}
+
+public void onToilet(){
+    objectiveUI.CompleteObjective("TOILET");
+}
+
+//nightmare1 complete
+
+    public void Nightmare1Complete() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "WAKE UP");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(NightmareLOADNEXT);
+    }
+
+        public void NightmareLOADNEXT() {
+   SceneManager.LoadScene("day2");
+    }
 
     public void Day1Work() {
         objectiveUI.ClearObjectives();
