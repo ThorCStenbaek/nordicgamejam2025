@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/day3.unity
     guid: 98eed3d13aebb3f4ab8039d885d20cf1
+  - enabled: 1
+    path: Assets/Scenes/Afternoon3.unity
+    guid: 1dcf89dda9e7b9346abed641bdc70e4f
+  - enabled: 1
+    path: Assets/Scenes/nightmarescene_3.unity
+    guid: 6cc73a6324d194944afcf08aab942200
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

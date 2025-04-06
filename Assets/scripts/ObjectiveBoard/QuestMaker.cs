@@ -21,6 +21,31 @@ public class QuestMaker : MonoBehaviour
 
     }
 
+
+     public void Day3Work() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("WORK", "Go to work");
+             //SceneManager.LoadScene("Afternoon1");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(Day3WorkComplete);
+
+    }
+    public void Day3WorkComplete(){
+                //load scene
+        SceneManager.LoadScene("Afternoon3");
+    }
+        public void Day3(){
+                            
+                            objectiveUI.AddObjective("SHOW", "Take a shower");
+                          objectiveUI.AddObjective("SINK", "Brush your teeth bro");
+                          objectiveUI.AddObjective("BREAKFAST", "Eat breakfast");
+
+
+  
+
+                                objectiveUI.SetOnAllObjectivesCompleteCallback(Day3Work);
+    }
+
+
     public void Day1(){
                             
                             objectiveUI.AddObjective("SHOW", "Take a shower");
@@ -110,6 +135,41 @@ objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon2Done);
         SceneManager.LoadScene("nightmarescene_2");
     }
 
+
+
+    /*33333*/
+
+
+      public void Afternoon3(){
+        /*
+        Afternoon
+Appear in order:
+You should listen back to the recording of today’s session
+Make some notes about your conclusions
+Brush your teeth
+Go to bed
+*/
+
+objectiveUI.AddObjective("NOTES", "Make some notes");
+objectiveUI.AddObjective("SINK", "Brush your teeth");
+objectiveUI.AddObjective("BREAKFAST", "Eat Dinner");
+
+objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon3Done);
+
+    }
+
+            public void Afternoon3Done() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "Go to bed");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(afternoon3Complete);
+
+    }
+
+        public void afternoon3Complete(){
+        //load scene
+        SceneManager.LoadScene("nightmarescene_3");
+    }
+
         public void Afternoon1Done() {
         objectiveUI.ClearObjectives();
         objectiveUI.AddObjective("BED", "Go to bed");
@@ -149,6 +209,56 @@ public void Nightmare2(){
         objectiveUI.AddObjective("BED", "WAKE UP");
         objectiveUI.SetOnAllObjectivesCompleteCallback(NightmareLOADNEXT2);
     }	
+
+
+
+
+//NIGHTMARE 3
+
+//elder signs 
+public void onEldersign1(){
+    objectiveUI.CompleteObjective("ELDERSIGN 1");
+}
+public void onEldersign2(){
+    objectiveUI.CompleteObjective("ELDERSIGN 2");
+}
+public void onEldersign3(){
+    objectiveUI.CompleteObjective("ELDERSIGN 3");
+}
+public void onEldersign4(){
+    objectiveUI.CompleteObjective("ELDERSIGN 4");
+}
+public void onEldersign5(){
+    objectiveUI.CompleteObjective("ELDERSIGN 5");
+}
+
+public void Nightmare3(){
+    objectiveUI.AddObjective("ELDERSIGN 1", "find eldersign 1");
+     objectiveUI.AddObjective("ELDERSIGN 2", "find eldersign 2");
+      objectiveUI.AddObjective("ELDERSIGN 3", "find eldersign 3");
+       objectiveUI.AddObjective("ELDERSIGN 4", "find eldersign 4");
+        objectiveUI.AddObjective("ELDERSIGN 5", "find eldersign 5");
+    objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare3Complete);
+}
+
+    public void Nightmare3Complete() {
+        objectiveUI.ClearObjectives();
+        
+        SceneManager.LoadScene("day1");
+        //objectiveUI.SetOnAllObjectivesCompleteCallback(Nightmare3WakeUp);
+    }
+
+    public void Nightmare3WakeUp(){
+          objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "WAKE UP");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(NightmareLOADNEXT3);
+    }	
+
+            public void NightmareLOADNEXT3() {
+   SceneManager.LoadScene("day1");
+    }
+
+
 
             public void NightmareLOADNEXT2() {
    SceneManager.LoadScene("day3");

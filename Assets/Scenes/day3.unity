@@ -4895,8 +4895,8 @@ GameObject:
   - component: {fileID: 768233071}
   - component: {fileID: 768233070}
   - component: {fileID: 768233072}
-  - component: {fileID: 768233075}
   - component: {fileID: 768233073}
+  - component: {fileID: 768233074}
   m_Layer: 0
   m_Name: questInit
   m_TagString: Untagged
@@ -4957,8 +4957,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 84b0926ad3c6c5a42bf79b15f20cbdea, type: 3}
-  m_Resource: {fileID: 8300000, guid: 84b0926ad3c6c5a42bf79b15f20cbdea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 813e3ef1c348fbc448c32c9abf95f488, type: 3}
+  m_Resource: {fileID: 8300000, guid: 813e3ef1c348fbc448c32c9abf95f488, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveEntryPrefab: {fileID: 1789969129}
   objectiveListParent: {fileID: 1701087363}
---- !u!114 &768233075
+--- !u!114 &768233074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 768233068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c7128a3789a39408c488452dd0ec4a, type: 3}
+  m_Script: {fileID: 11500000, guid: e0141972da4e7334ea4195d7bdc5c094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questMaker: {fileID: 768233071}
