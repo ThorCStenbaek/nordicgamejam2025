@@ -17,12 +17,93 @@ public class QuestMaker : MonoBehaviour
         }
 
         // Set the callback for when all objectives are complete
-        objectiveUI.SetOnAllObjectivesCompleteCallback(OnAllObjectivesComplete);
+       // objectiveUI.SetOnAllObjectivesCompleteCallback(OnAllObjectivesComplete);
 
-        // Add initial objectives using string keys
-        objectiveUI.AddObjective("KEY", "Find the apartment key");
-        objectiveUI.AddObjective("POWER", "Turn on the power");
     }
+
+    public void Day1(){
+                            
+                            objectiveUI.AddObjective("SHOW", "Take a shower");
+                          objectiveUI.AddObjective("SINK", "Brush your teeth bro");
+                          objectiveUI.AddObjective("BREAKFAST", "Eat breakfast");
+
+
+  
+
+                                objectiveUI.SetOnAllObjectivesCompleteCallback(Day1Work);
+    }
+
+
+    public void Afternoon1(){
+        /*
+        Afternoon
+Appear in order:
+You should listen back to the recording of today’s session
+Make some notes about your conclusions
+Brush your teeth
+Go to bed
+*/
+
+objectiveUI.AddObjective("NOTES", "Make some notes");
+objectiveUI.AddObjective("SINK", "Brush your teeth");
+objectiveUI.AddObjective("BREAKFAST", "Eat Dinner");
+
+objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon1Done);
+
+    }
+
+        public void Afternoon1Done() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("BED", "Go to bed");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(afternoon1Complete);
+
+    }
+
+
+    public void onNote(){
+        objectiveUI.CompleteObjective("NOTES");
+    }
+
+    public void afternoon1Complete(){
+        //load scene
+        SceneManager.LoadScene("Day2");
+    }
+
+
+    public void Day1Work() {
+        objectiveUI.ClearObjectives();
+        objectiveUI.AddObjective("WORK", "Go to work");
+        objectiveUI.SetOnAllObjectivesCompleteCallback(Day1WorkComplete);
+
+    }
+    public void Day1WorkComplete(){
+                //load scene
+        SceneManager.LoadScene("Afternoon1");
+    }
+
+    public void onShower(){
+          objectiveUI.CompleteObjective("SHOW");
+         Debug.LogWarning("SHOWER TIME");
+           objectiveUI.LogAllObjectiveKeys();
+      
+    }
+
+    public void onSink(){
+        objectiveUI.CompleteObjective("SINK");
+    }
+
+    public void onBreakfast(){
+        objectiveUI.CompleteObjective("BREAKFAST");
+    }
+
+    public void onWork(){
+        objectiveUI.CompleteObjective("WORK");
+    }
+
+    public void onBed(){
+        objectiveUI.CompleteObjective("BED");
+    }
+
 
     public void OnKeyPickup()
     {

@@ -14,26 +14,34 @@ public class ObjectiveUI : MonoBehaviour
 
     private Dictionary<string, Objective> objectives = new Dictionary<string, Objective>();
 
-    public void AddObjective(string key, string text)
+public void AddObjective(string key, string text)
+{
+    if (objectives.ContainsKey(key))
     {
-        if (objectives.ContainsKey(key))
-        {
-            Debug.LogWarning($"Objective with key '{key}' already exists!");
-            return;
-        }
-
-        GameObject newEntry = Instantiate(objectiveEntryPrefab, objectiveListParent);
-        TextMeshProUGUI textComp = newEntry.GetComponent<TextMeshProUGUI>();
-
-        textComp.text = "☐ " + text;
-
-        objectives.Add(key, new Objective
-        {
-            text = text,
-            completed = false,
-            textComponent = textComp
-        });
+        Debug.LogWarning($"Objective with key '{key}' already exists!");
+        return;
     }
+
+    GameObject newEntry = Instantiate(objectiveEntryPrefab, objectiveListParent);
+    TextMeshProUGUI textComp = newEntry.GetComponentInChildren<TextMeshProUGUI>();
+
+    if (textComp == null)
+    {
+        Debug.LogError("Objective prefab is missing a TextMeshProUGUI component!");
+        return;
+    }
+
+    textComp.text = "☐ " + text;
+
+    objectives.Add(key, new Objective
+    {
+        text = text,
+        completed = false,
+        textComponent = textComp
+    });
+}
+
+
 
     public void SetOnAllObjectivesCompleteCallback(System.Action callback)
 {
@@ -42,12 +50,13 @@ public class ObjectiveUI : MonoBehaviour
 
 
     public void CompleteObjective(string key)
+    
 {
     if (objectives.TryGetValue(key, out Objective obj) && !obj.completed)
     {
         obj.completed = true;
-        obj.textComponent.text = $"<s>☑ {obj.text}</s>";
-
+        obj.textComponent.text = $"<s>☑ {obj.text}</s>";    
+ Debug.LogWarning($"OBJECTTIVE COMPLETE: {key} {obj.text}");
         CheckObjectivesCompletion();
     }
     else
@@ -85,4 +94,14 @@ private void CheckObjectivesCompletion()
         public bool completed;
         public TextMeshProUGUI textComponent;
     }
+
+    public void LogAllObjectiveKeys()
+{
+    Debug.Log("Current Objective Keys:");
+    foreach (var key in objectives.Keys)
+    {
+        Debug.Log($"- {key}");
+    }
+}
+
 }
