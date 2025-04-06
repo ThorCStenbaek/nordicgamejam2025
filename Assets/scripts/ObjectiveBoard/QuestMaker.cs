@@ -66,7 +66,7 @@ objectiveUI.SetOnAllObjectivesCompleteCallback(Afternoon1Done);
 
     public void afternoon1Complete(){
         //load scene
-        SceneManager.LoadScene("nightmare1");
+        SceneManager.LoadScene("nightmarescene_1");
     }
 
 
@@ -94,6 +94,7 @@ public void onToilet(){
     public void Day1Work() {
         objectiveUI.ClearObjectives();
         objectiveUI.AddObjective("WORK", "Go to work");
+             //SceneManager.LoadScene("Afternoon1");
         objectiveUI.SetOnAllObjectivesCompleteCallback(Day1WorkComplete);
 
     }
